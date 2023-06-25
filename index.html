@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html data-bs-theme="auto" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>StreamingAVIP</title>
+    <meta property="og:image" content="assets/img/logo/Original.png?h=806591b316c6ff5eeb79ea5f0f2ad7f6">
+    <script>
+        (function() {
+
+            // JavaScript snippet handling Dark/Light mode switching
+
+            const getStoredTheme = () => localStorage.getItem('theme');
+            const setStoredTheme = theme => localStorage.setItem('theme', theme);
+            const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
+
+            const getPreferredTheme = () => {
+
+                if (forcedTheme) return forcedTheme;
+
+                const storedTheme = getStoredTheme();
+                if (storedTheme) {
+                    return storedTheme;
+                }
+
+                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
+
+                if (pageTheme) {
+                    return pageTheme;
+                }
+
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            const setTheme = theme => {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                }
+            }
+
+            setTheme(getPreferredTheme());
+
+            const showActiveTheme = (theme, focus = false) => {
+                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
+
+                if (!themeSwitchers.length) return;
+
+                for (const themeSwitcher of themeSwitchers) {
+
+                    const themeSwitcherText = document.querySelector('#theme-text');
+                    const activeThemeIcon = document.querySelector('.theme-icon-active use');
+                    const btnToActive = document.querySelector('[data-bs-theme-value="' + theme + '"]');
+
+                    document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                        element.classList.remove('active');
+                        element.setAttribute('aria-pressed', 'false');
+                    });
+
+                    btnToActive.classList.add('active');
+                    btnToActive.setAttribute('aria-pressed', 'true');
+                }
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme();
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme());
+                }
+            });
+
+            window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme());
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const theme = toggle.getAttribute('data-bs-theme-value');
+                            setStoredTheme(theme);
+                            setTheme(theme);
+                            showActiveTheme(theme);
+                        })
+                    })
+            });
+        })();
+    </script>
+    <link rel="icon" type="image/png" sizes="1080x1080" href="assets/img/logo/Original.png?h=806591b316c6ff5eeb79ea5f0f2ad7f6">
+    <link rel="icon" type="image/png" sizes="1080x1080" href="assets/img/logo/Original.png?h=806591b316c6ff5eeb79ea5f0f2ad7f6">
+    <link rel="icon" type="image/png" sizes="1080x1080" href="assets/img/logo/Original.png?h=806591b316c6ff5eeb79ea5f0f2ad7f6">
+    <link rel="icon" type="image/png" sizes="1080x1080" href="assets/img/logo/Original.png?h=806591b316c6ff5eeb79ea5f0f2ad7f6">
+    <link rel="icon" type="image/png" sizes="1080x1080" href="assets/img/logo/Original.png?h=806591b316c6ff5eeb79ea5f0f2ad7f6">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=d2583ee8ec2f1044947cb8b625ef9c8d">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/styles.min.css?h=f3f5e3e0fd9b38313d60c6777e01a15a">
+</head>
+
+<body style="background: rgb(250,249,254);">
+    <nav class="navbar navbar-light navbar-expand-md fixed-top shadow py-3" style="background: #fbf8fe;">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon" style="background: url(&quot;assets/img/logo/Original.png?h=806591b316c6ff5eeb79ea5f0f2ad7f6&quot;) center / cover;"></span><span style="font-weight: bold;">StreamingAVip</span></a><a class="btn btn-primary btn-sm ms-md-2" role="button" href="https://forms.gle/t33BdTMi6YcuSFt78" style="background: #78C4C7;border-style: none;">UNIRME</a></div>
+    </nav>
+    <header class="bg-primary-gradient py-5" style="background: url(&quot;assets/img/fondo/pexels-ekaterina-bolovtsova-4048767.jpg?h=c5588bd579b58cfbed9554495fc6bd56&quot;) center / cover;">
+        <div class="container py-5">
+            <div class="row py-5">
+                <div class="col-md-12 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-end mb-4">
+                    <div style="max-width: 450px;padding: 10px;background: rgba(120,196,199,0.4);border-radius: 19px;">
+                        <h2 class="fw-bold" style="color: #ffffff;">¿QUÉ ES UNA STREAMER?</h2>
+                        <p class="my-3" style="color: rgb(255,255,255);">Una streamer es una profesional que aprovecha su carisma y talento para generar ingresos en dólares a través de diversas interacciones en línea. Además de las transmisiones en vivo, las streamers también ofrecen servicios de videollamadas, mensajes de voz, envío de fotos y videos, entre otros. Su objetivo principal es acumular la mayor cantidad posible de diamantes, así como recibir regalos físicos y virtuales, para aumentar su salario y alcanzar una mayor prosperidad económica. Cada interacción exitosa con los usuarios se traduce en ganancias adicionales, brindándole una oportunidad lucrativa en el apasionante mundo digital. Los diamantes virtuales son una moneda valiosa en estas plataformas, mientras que los regalos físicos y virtuales añaden un elemento tangible y emocionante a la experiencia de la streamer, fortaleciendo aún más su conexión con la audiencia y su éxito financiero. Con una amplia gama de servicios disponibles, las streamers pueden personalizar su oferta y brindar experiencias únicas y cautivadoras a sus seguidores en todo el mundo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container py-5">
+            <div class="mx-auto" style="max-width: 900px;">
+                <div class="row row-cols-1 row-cols-md-2 d-flex justify-content-center">
+                    <div class="col mb-4">
+                        <div class="card bg-primary-subtle" style="background: #78C4C7;">
+                            <div class="card-body text-center shadow px-4 py-5 px-md-5">
+                                <p class="fw-bold card-text mb-2">Mision</p>
+                                <h5 class="fw-bold card-title mb-3">Nuestra misión es empoderar y elevar a streamers de diferentes países, brindándoles una plataforma sólida para alcanzar nuevas cumbres en su carrera. Nos dedicamos apasionadamente a inspirar, guiar y respaldar a nuestros streamers en su camino hacia el éxito. Proporcionar una experiencia única, a medida y enfocada en superar las expectativas, ofreciendo oportunidades excepcionales para el desarrollo y el éxito de nuestros streamers. Creemos apasionadamente en la importancia de crear un entorno seguro, estimulante y diverso donde cada streamer pueda florecer y desplegar su máximo potencial. Trabajaremos en estrecha colaboración, con incansable dedicación, para construir un futuro altamente lucrativo y repleto de logros para cada uno de nuestros talentosos y audaces streamers.</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4">
+                        <div class="card shadow" style="background: #ffffff;">
+                            <div class="card-body text-center px-4 py-5 px-md-5">
+                                <p class="fw-bold card-text mb-2" style="color: #5E280C;">Vision</p>
+                                <h5 class="fw-bold card-title mb-3">Nuestra visión es brindar un impulso decisivo hacia el éxito de nuestras streamers, permitiéndoles alcanzar nuevas alturas en su carrera. Nos esforzamos por crear un ambiente laboral estimulante y seguro, donde cada streamer pueda florecer y destacar en su arte. Aspiramos a posicionarnos como la agencia número uno en el ámbito de las transmisiones en vivo, siendo reconocidos por nuestra excelencia, innovación y capacidad para generar oportunidades sin igual. Estamos comprometidos en liderar el camino en la industria, estableciendo nuevos estándares de calidad y apoyando el crecimiento continuo de nuestras talentosas streamers. Con nuestra visión audaz y nuestra dedicación inflexible, estamos forjando un futuro donde el éxito y la prosperidad abundan para aquellos que se atreven a soñar en grande en el fascinante mundo del streaming.</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5" style="background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.49)), url(&quot;assets/img/fondo/pexels-andrea-piacquadio-3765035.jpg?h=fc09e842bf98282cfdd566705477179b&quot;) center / cover;">
+        <div class="container text-center py-5">
+            <h5 class="fw-bold mb-3" style="color: #5E280C;">Experiencias</h5>
+            <p class="mb-4" style="font-size: 1.6rem;font-weight: bold;">2 años en el mundo de Streaming, mas de 200 Streaming en la ampliación&nbsp;, más <span class="bg-success-light p-1" style="background: #78C4C7;"><strong>14000+</strong></span>&nbsp;usuarios por conocer.</p>
+        </div>
+    </section>
+    <section>
+        <div class="container bg-primary-gradient py-5">
+            <div class="row">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h3 class="fw-bold" style="color: #5E280C;">¿Qué necesitas para convertirte en un(a) exitoso(a) streamer? Aquí te presento los requisitos clave:</h3>
+                </div>
+            </div>
+            <div class="py-5 p-lg-5">
+                <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
+                    <div class="col mb-5">
+                        <div class="card shadow-sm">
+                            <div class="card-body px-4 py-5 px-md-5">
+                                <h5 class="fw-bold card-title">1. Debes ser mayor de edad y estar dispuesto(a) a conquistar el mundo del streaming.</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card shadow-sm">
+                            <div class="card-body px-4 py-5 px-md-5">
+                                <h5 class="fw-bold card-title">2. Necesitarás un teléfono móvil compatible, ya sea con sistema operativo Android o iOS, para transmitir con calidad y cautivar a tu audiencia.</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card shadow-sm">
+                            <div class="card-body px-4 py-5 px-md-5">
+                                <h5 class="fw-bold card-title">3. Asegúrate de contar con una conexión a internet estable para ofrecer transmisiones fluidas y sin interrupciones.</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card shadow-sm">
+                            <div class="card-body px-4 py-5 px-md-5">
+                                <h5 class="fw-bold card-title">4. Comprométete a dedicar de 6 a 8 horas diarias a tu actividad como streamer, mostrando tu pasión y talento al máximo.</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card shadow-sm">
+                            <div class="card-body px-4 py-5 px-md-5">
+                                <h5 class="fw-bold card-title">5. Es importante que dispongas de una cuenta bancaria física o digital, propia o de confianza, para recibir los generosos ingresos que te esperan.</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card shadow-sm">
+                            <div class="card-body px-4 py-5 px-md-5">
+                                <h5 class="fw-bold card-title">6. Destaca por tu habilidad comunicativa, actitud deslumbrante y carisma magnético, para atraer y mantener a tu creciente comunidad de seguidores.</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <p class="fw-bold mb-2" style="color: #5E280C;">Con estos requisitos, estarás en el camino hacia una carrera lucrativa en el mundo del streaming. Prepárate para brillar y conquistar el corazón de tu audiencia con tu encanto único. ¡Es hora de ser un(a) streamer exitoso(a) y lograr grandes cosas en esta emocionante industria!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container bg-primary-gradient py-5">
+            <div class="row">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <p class="fw-bold mb-2" style="color: #78C4C7;">Ventajas</p>
+                    <h3 class="fw-bold" style="color: #5E280C;">¡Únete a Amazing VIP y disfruta de las ventajas de ser streamer!</h3>
+                </div>
+            </div>
+            <div class="py-5 p-lg-5">
+                <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
+                    <div class="col-md-12 mb-5">
+                        <div class="card shadow-sm">
+                            <div class="card-body px-4 py-5 px-md-5">
+                                <h5 class="fw-bold card-title">Pagos en Dólares sin comisiones excesivas<br><br>Trabaja desde casa, sin necesidad de invertir dinero<br><br>Recibe capacitación y regalos exclusivos<br><br>Horario flexible, trabaja de 6 a 8 horas diarias<br><br>Protección de datos personales y total libertad creativa<br><br>Sin obligaciones, elige el contenido que te haga sentir cómod@<br><br>Somos la agencia número 1 en Latinoamérica, garantía de seguridad y éxito.</h5>
+                                <p class="fw-bold mb-2" style="color: #78C4C7;">¡No lo dudes más y únete a Amazing VIP!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h3 class="fw-bold" style="color: #5E280C;">En Amazing VIP, te brindamos una serie de beneficios exclusivos para que aproveches al máximo tu experiencia:</h3>
+                </div>
+            </div>
+            <div class="py-5 p-lg-5">
+                <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
+                    <div class="col-md-12 mb-5">
+                        <div class="card shadow-sm">
+                            <div class="card-body px-4 py-5 px-md-5">
+                                <h5 class="fw-bold card-title">- Genera ingresos en dólares de forma segura y rentable.<br><br>- Trabaja sin jefes, pero con el apoyo de nuestras tutoras o administradoras.<br><br>- Accede a nuestra vinculación y capacitación gratuita, sin necesidad de realizar inversiones.<br><br>- Flexibilidad horaria: dedica de 6 a 8 horas al día según tu disponibilidad.<br><br>- Privacidad y discreción garantizadas: todas las interacciones se realizan dentro de la aplicación, sin necesidad de promocionarse en redes sociales.</h5>
+                                <p class="fw-bold mb-2" style="color: #78C4C7;">Únete a Amazing VIP y descubre cómo puedes alcanzar el éxito y disfrutar de increíbles beneficios en el apasionante mundo del streaming.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="fw-bold">Preguntas Frecuentes</h2>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
+                <div class="col mb-4">
+                    <div><a href="#"></a>
+                        <div class="py-4"><span class="badge mb-2" style="background: #78C4C7;">Preguntas</span>
+                            <h4 class="fw-bold">¿Cuánto puedo ganar?</h4>
+                            <p class="text-muted">¡Es natural tener curiosidad sobre tus posibles ganancias! En Amazing VIP, te ofrecemos una oportunidad única: tú conservas el 100% de tus ingresos generados. No aplicamos ningún tipo de comisión, solo un pequeño cargo por envío. Las ganancias potenciales pueden variar significativamente, desde $50 hasta $800 o más ¡por semana! Es importante tener en cuenta que tus ingresos estarán directamente relacionados con el tiempo y esfuerzo que dediques a tu trabajo. Estamos comprometidos a apoyarte en el logro de tus metas financieras. ¡No pierdas la oportunidad de empezar a ganar desde ahora mismo!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div><a href="#"></a>
+                        <div class="py-4"><span class="badge mb-2" style="background: #78C4C7;">Preguntas</span>
+                            <h4 class="fw-bold">¿debo hacer desnudos?</h4>
+                            <p class="text-muted">No es necesario realizar desnudos en absoluto. Tú tienes la libertad de elegir el tipo de contenido que deseas compartir. Si bien ser una persona de mente abierta puede ayudarte a aumentar tus ganancias y acelerar tu crecimiento, respetamos tus límites y preferencias.&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div><a href="#"></a>
+                        <div class="py-4"><span class="badge mb-2" style="background: #78C4C7;">Preguntas</span>
+                            <h4 class="fw-bold">¿Cómo cuido mi privacidad?</h4>
+                            <p class="text-muted">La privacidad de tu información es nuestra máxima prioridad en Amazing VIP. Nos aseguramos de que tu privacidad esté totalmente protegida dentro de la aplicación. No es necesario promocionar tu perfil en redes sociales externas para atraer seguidores, lo que significa que tienes control total sobre tu información personal. Además, en nuestra plataforma, los perfiles se crean con apodos para preservar tu identidad real. Puedes estar seguro/a de que tu privacidad está salvaguardada mientras disfrutas de una experiencia segura y protegida en nuestra aplicación.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div><a href="#"></a>
+                        <div class="py-4"><span class="badge mb-2" style="background: #78C4C7;">Preguntas</span>
+                            <h4 class="fw-bold">¿Debo invertir dinero?</h4>
+                            <p class="text-muted">En Amazing VIP, no cobramos ningún costo por ingresar a nuestra agencia. ¡Es completamente gratuito! Además, no aplicamos ningún porcentaje de comisión sobre tus ganancias. Nuestro objetivo es brindarte una oportunidad sin barreras financieras, por lo que solo tendrás que asumir el costo de la transferencia bancaria para el depósito en tu cuenta. Queremos que aproveches al máximo tus ganancias sin que te preocupes por cargos adicionales. ¡Estamos comprometidos en ofrecerte una experiencia transparente y beneficiosa para tu crecimiento económico!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div><a href="#"></a>
+                        <div class="py-4"><span class="badge mb-2" style="background: #78C4C7;">Preguntas</span>
+                            <h4 class="fw-bold">¿Debo saber ingles?</h4>
+                            <p class="text-muted">No es necesario que cuentes con conocimientos de inglés. Gracias a la función de traducción automática del chat, tus mensajes se mostrarán en el idioma nativo de los usuarios. Además, te brindamos herramientas para que puedas tener conversaciones fluidas y disfrutar plenamente de la experiencia. Estamos aquí para apoyarte en todo momento y responder a cualquier pregunta que tengas. ¡No dudes en comunicarte con nosotros!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div><a href="#"></a>
+                        <div class="py-4"><span class="badge mb-2" style="background: #78C4C7;">Preguntas</span>
+                            <h4 class="fw-bold">¿Qué tiempo amerita ?</h4>
+                            <p class="text-muted">En Amazing VIP entendemos que tu tiempo es valioso, por eso te ofrecemos flexibilidad en tus horarios. Durante las primeras dos semanas, te recomendamos dedicar un mínimo de 6 a 8 horas al día para construir una base sólida y acelerar tu progreso. Una vez que te sientas más cómodo y hayas alcanzado tus objetivos iniciales, podrás ajustar tus horarios de acuerdo a tus preferencias y metas personales. Nuestro objetivo es brindarte la oportunidad de trabajar de manera eficiente y obtener mayores ganancias en menos tiempo. En Amazing VIP, valoramos tu dedicación y te ofrecemos un camino emocionante hacia el éxito financiero como streamer. ¡Únete a nosotros y descubre el potencial ilimitado de tu talento!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="fw-bold">¿Qué piensa la gente de Streaming Amazing Vip?</h2>
+                    <p class="text-muted">Comentarios</p>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 d-sm-flex justify-content-sm-center">
+                <div class="col mb-4">
+                    <div class="d-flex flex-column align-items-center align-items-sm-start">
+                        <p class="bg-body-tertiary border rounded border-0 p-4">Quiero compartir mi experiencia personal con Amazing VIP. Al principio, admito que era bastante escéptica debido a las malas experiencias que había tenido previamente. Había escuchado historias de personas que fueron engañadas y estafadas en situaciones similares. Sin embargo, después de un tiempo, decidí darle una oportunidad a Amazing VIP y estoy extremadamente agradecida de haberlo hecho.<br><br>Debo destacar que la agencia ha demostrado ser extremadamente confiable y puntual en todas mis interacciones con ellos. Han cumplido con sus compromisos y han sido transparentes en todo momento. Esto me ha brindado un sentido de seguridad y confianza que no había experimentado antes.</p>
+                        <div class="d-flex"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="50" height="50" src="assets/img/team/54d6f1a1d249a8ecd59b241c6fb5c0bc.jpg?h=ce5a5043d99d5da683875340ee332f4e">
+                            <div>
+                                <p class="fw-bold text-primary mb-0">Sandra Milena</p>
+                                <p class="text-muted mb-0">Colombiana</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="d-flex flex-column align-items-center align-items-sm-start">
+                        <p class="bg-body-tertiary border rounded border-0 p-4">al comienzo, no podía creerlo, pero puedo asegurarte que es completamente real. En solo una semana, pude cambiar por completo mi estilo de vida gracias a Amazing VIP gane más de&nbsp;más de 320$ en tan solo una semana. No solo he experimentado un aumento significativo en mis ingresos, sino que también he visto cómo mi calidad de vida ha mejorado notablemente. Poder alcanzar metas financieras en tan poco tiempo es algo verdaderamente asombroso.</p>
+                        <div class="d-flex"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="50" height="50" src="assets/img/team/photo-1648615443703-89c209417310.jpeg?h=c8420b068b7afc926880ceafa1afb124">
+                            <div>
+                                <p class="fw-bold text-primary mb-0">María Elena</p>
+                                <p class="text-muted mb-0">Peruana</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="d-flex flex-column align-items-center align-items-sm-start">
+                        <p class="bg-body-tertiary border rounded border-0 p-4">Mi testimonio en Amazing Vip ha sido una experiencia transformadora durante estos últimos 7 meses. He encontrado la independencia y la posibilidad de invertir en mi futuro. Con actitud y determinación, estoy cumpliendo mis sueños paso a paso. Gracias a Amazing Vip, estoy construyendo un futuro próspero. ¡Únete a nosotros y haz realidad tus sueños hoy mismo!</p>
+                        <div class="d-flex"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="50" height="50" src="assets/img/team/0c069c8ee315282453934df5dd77d2e4.jpg?h=a4b4f3d53d4101591c303a8af7777104">
+                            <div>
+                                <p class="fw-bold text-primary mb-0">Verónica Sanchez</p>
+                                <p class="text-muted mb-0">Erat netus</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-primary-gradient" style="background: #ffffff;">
+        <div class="container py-4 py-lg-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last">
+                    <div class="fw-bold d-flex align-items-center mb-2"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon" style="background: url(&quot;assets/img/logo/Original.png?h=806591b316c6ff5eeb79ea5f0f2ad7f6&quot;) center / cover;"></span><span style="color: #78C4C7;">Streaming Amazing Vip</span></div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-muted d-flex justify-content-between align-items-center pt-3">
+                <p class="mb-0" style="font-weight: bold;">Copyright © 2023 Streaming Amazing Vip</p>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path>
+                        </svg></li>
+                    <li class="list-inline-item"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-twitter">
+                            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+                        </svg></li>
+                    <li class="list-inline-item"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
+                        </svg></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/jquery.min.js?h=84e399b8f2181ccd73394fdeddff1638"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js?h=b4349cf7232e6b66621e089f2b9beee5"></script>
+    <script src="assets/js/script.min.js?h=9a9b12d9479055b6ccf322643488f6dd"></script>
+</body>
+
+</html>
